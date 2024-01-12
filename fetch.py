@@ -3,7 +3,7 @@ import requests
 import time
 import signal
 from collections import defaultdict
-
+import os
 class HealthChecker:
     def __init__(self, config_path):
         self.endpoints = self.load_config(config_path)
@@ -57,5 +57,5 @@ def signal_handler(sig, frame):
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
-    checker = HealthChecker("/Users/amudalaakhil/Desktop/SYSTEMDESIGN/fetchexam/config.yaml")
+    checker = HealthChecker('config.yaml')
     checker.run_health_check()
